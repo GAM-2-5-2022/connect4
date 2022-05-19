@@ -15,15 +15,43 @@ for i in range(6):
     mat.append(aaa)
 
 print(mat)
+xc = 120
+yc = 25
+
+red = 0
 
 running = True
 while running:
     pygame.display.flip()
     screen.blit(bg_img, (0, 0))
-    screen.blit(crv, (50, 50))
-    screen.blit(zut, (850, 180))
+    
     for event in pygame.event.get():
+        if red == 0:
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    xc -= 121
+                if event.key == pygame.K_RIGHT:
+                    xc += 121
+                pygame.display.update()
+        else:
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    xc -= 121
+                if event.key == pygame.K_RIGHT:
+                    xc += 121
+                pygame.display.update()
+
+                
         if event.type == pygame.QUIT:
             running = False
+
+    if xc < 121:
+        xc = 121
+    if xc > 850:
+        xc = 847
+
+    screen.blit(crv, (xc, yc))
+    screen.blit(zut, (850, 180))
+    
 pygame.quit()
     
