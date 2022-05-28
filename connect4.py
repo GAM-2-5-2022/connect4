@@ -1,4 +1,5 @@
 import pygame
+import time
 pygame.init()
 size = [1100, 1000]
 screen = pygame.display.set_mode(size)
@@ -14,7 +15,7 @@ for i in range(6):
         aaa.append(0)
     mat.append(aaa)
 
-print(mat)
+
 xc = 120
 yc = 25
 
@@ -32,6 +33,18 @@ while running:
                     xc -= 121
                 if event.key == pygame.K_RIGHT:
                     xc += 121
+                if event.key == pygame.K_DOWN:
+                    yc = 180
+                    screen.blit(crv, (xc, yc))
+                    pygame.display.update()
+                    ##################
+                    for i in range(5):
+                        yc += 100
+                        time.sleep(1)
+                        screen.blit(crv, (xc, yc))
+                        pygame.display.update()
+                    ##################
+                        
                 pygame.display.update()
         else:
             if event.type == pygame.KEYDOWN:
