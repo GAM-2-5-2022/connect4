@@ -1,7 +1,10 @@
 import pygame
 import time
-import sys
+
 pygame.init()
+pygame.display.set_caption('Connect 4')
+logo = pygame.image.load("logo.png")
+pygame.display.set_icon(logo)
 
 def updateq():
     pygame.display.flip()
